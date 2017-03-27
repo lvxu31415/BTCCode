@@ -14,7 +14,7 @@ extern char *file_name;
 Bitmap      *bitmap = NULL;         // 指向位图
 int         download_piece_num = 0; // 当前已下载的piece数 
 
-// 如果存在一个位图文件,则读位图文件并把获取的内容保存到bitmap
+// 如果存在一个位图文件,则读位图文 件并把获取的内容保存到bitmap
 // 如此一来,就可以实现断点续传,即上次下载的内容不至于丢失
 int create_bitfield()
 {

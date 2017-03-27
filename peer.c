@@ -116,7 +116,7 @@ int del_peer_node(Peer *peer)
 		if( p == peer ) {
 			if(p == peer_head)  peer_head = p->next;
 			else  q->next = p->next;
-			free_peer_node(p);  // 可能存在问题
+			free_peer_node(p);  // 可 能存在问题
 			return 0;
 		} else {
 			q = p;

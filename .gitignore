@@ -1,3 +1,4 @@
-/torrrent
+/torrent
 *.o
 /CMakeFiles
+/\[DA\]*

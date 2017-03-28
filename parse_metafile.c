@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <ctype.h>
-#include <malloc.h>
+#include <sys/malloc.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include "parse_metafile.h"
 #include "sha1.h"
+#include "macro.h"
 
 char  *metafile_content = NULL; // 保存种子文件的内容
 long  filesize;                 // 种子文件的长度
@@ -417,8 +418,11 @@ int get_peer_id()
 {
 	// 设置产生随机数的种子
 	srand(time(NULL));
+
 	// 生成随机数,并把其中12位赋给peer_id,peer_id前8位固定为-TT1000-
-	sprintf(peer_id,"-TT1000-%12d",rand());
+	sprintf(peer_id,"-TT1000-%11d",rand());
+		printf("OK13\n");
+
 
 #ifdef DEBUG
 	int i;
@@ -458,8 +462,9 @@ int parse_metafile(char *metafile)
 
 	// 读取种子文件
 	ret = read_metafile(metafile);
+
 	if(ret < 0) { printf("%s:%d wrong",__FILE__,__LINE__); return -1; }
-	
+
 	// 从种子文件中获取tracker服务器的地址
 	ret = read_announce_list();
 	if(ret < 0) { printf("%s:%d wrong",__FILE__,__LINE__); return -1; }
@@ -491,6 +496,7 @@ int parse_metafile(char *metafile)
 	// 获得info_hash，生成peer_id
 	ret = get_info_hash();
 	if(ret < 0) { printf("%s:%d wrong",__FILE__,__LINE__); return -1; }
+
 	ret = get_peer_id();
 	if(ret < 0) { printf("%s:%d wrong",__FILE__,__LINE__); return -1; }
 

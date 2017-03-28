@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <malloc.h>
+#include <sys/malloc.h>
 #include "data.h"
 #include "tracker.h"
 #include "bitfield.h"
@@ -11,8 +11,6 @@
 #include "signal_hander.h"
 #include "policy.h"
 #include "log.h"
-
-// #define  DEBUG
 
 int main(int argc, char *argv[])
 {
@@ -30,6 +28,7 @@ int main(int argc, char *argv[])
 	// 解析种子文件
 	ret = parse_metafile(argv[1]);
 	if(ret != 0)  { printf("%s:%d error\n",__FILE__,__LINE__); return -1; }
+
 
 	// 初始化非阻塞peer
 	init_unchoke_peers();

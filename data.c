@@ -5,7 +5,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <malloc.h>
+#include <sys/malloc.h>
 #include "data.h"
 #include "sha1.h"
 #include "parse_metafile.h"

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
-#include <malloc.h>
+#include <sys/malloc.h>
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>

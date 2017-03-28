@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <malloc.h>
+#include <sys/malloc.h>
 #include <errno.h>
 #include <ctype.h>
 #include <unistd.h>
@@ -215,6 +215,7 @@ int prepare_connect_tracker(int *max_sockfd)
 			printf("gethostbyname failed:%s\n",hstrerror(h_errno)); 
 			valid[i] = 0;
 		} else {
+			printf("success host")
 			memset(&tracker[i], 0, sizeof(struct sockaddr_in));
 			memcpy(&tracker[i].sin_addr.s_addr, ht->h_addr_list[0], 4);
 			tracker[i].sin_port = htons(tracker_port);

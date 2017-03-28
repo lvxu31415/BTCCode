@@ -1,0 +1,2 @@
+make
+./torrent test.torrent

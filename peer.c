@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <malloc.h>
+#include <sys/malloc.h>
 #include "peer.h"
 #include "message.h"
 #include "bitfield.h"

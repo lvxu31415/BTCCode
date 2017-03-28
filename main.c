@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <malloc.h>
+#include <sys/malloc.h>
 #include "data.h"
 #include "tracker.h"
 #include "bitfield.h"

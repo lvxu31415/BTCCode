@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
 	ret = parse_metafile(argv[1]);
 	if(ret != 0)  { printf("%s:%d error\n",__FILE__,__LINE__); return -1; }
 
-	printf("OK3\n");
 	// 初始化非阻塞peer
 	init_unchoke_peers();
 
